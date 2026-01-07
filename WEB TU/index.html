@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTSP MAN 2 Pamekasan</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'card-yellow': '#EBEF23',
+                        'card-red': '#FF0000',
+                        'card-green': '#32CD32',
+                        'card-dark-green': '#7ab55c', /* darker green for footer/accents if needed */
+                        'man-green': '#009B4D', /* Approximate green from logo */
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        /* Custom Styles for accurate recreation */
+        .bg-school-overlay {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('assets/bg-school.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Floating Card Hover Effect */
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Pill shape indicator under cards */
+        .pill-indicator {
+            height: 24px;
+            width: 80px;
+            border-radius: 12px;
+            margin: 15px auto 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            /* Adjustable based on visual reference, looks like a shadow or grip */
+        }
+
+        .footer-lines {
+            height: 4px;
+            background-color: #ddd;
+            border-radius: 2px;
+            margin: 4px auto;
+            width: 60%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 font-sans antialiased overflow-x-hidden flex flex-col min-h-screen">
+
+    <!-- Header Section -->
+    <header
+        class="relative w-full h-[60vh] md:h-[65vh] bg-school-overlay flex flex-col justify-between p-6 md:p-10 text-white rounded-b-[3rem] shadow-2xl z-10">
+        <!-- Logos -->
+        <div class="flex justify-between items-start w-full">
+            <img src="assets/logo-man2.png" alt="Logo MAN 2" class="h-16 md:h-24 drop-shadow-lg" data-aos="fade-down"
+                data-aos-delay="100">
+            <img src="assets/logo-kemenag.png" alt="Logo Kemenag" class="h-16 md:h-24 drop-shadow-lg"
+                data-aos="fade-down" data-aos-delay="200">
+        </div>
+
+        <!-- Center Text -->
+        <div class="text-center mt-4 md:mt-0 mb-16 md:mb-20">
+            <h2 class="text-sm md:text-lg font-semibold tracking-widest uppercase mb-2 opacity-90 drop-shadow-md"
+                data-aos="fade-up" data-aos-delay="300">
+                MAN 2 PAMEKASAN MA PLUS KETERAMPILAN
+            </h2>
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-wide drop-shadow-lg leading-tight"
+                data-aos="fade-up" data-aos-delay="400">
+                PELAYANAN TERPADU <br class="hidden md:block"> SATU PINTU
+            </h1>
+            <div class="w-24 h-1 bg-white mx-auto mt-6 rounded-full" data-aos="zoom-in" data-aos-delay="500"></div>
+        </div>
+    </header>
+
+    <!-- Floating Cards Section -->
+    <!-- Negative margin pulls this section up to overlap the header -->
+    <main class="flex-grow w-full px-4 md:px-10 -mt-24 md:-mt-32 relative z-20 mb-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+
+            <!-- Card 1: Buku Tamu (Yellow) -->
+            <a href="https://forms.zohopublic.com/ptspman2pamekasan1/form/PTSPmanduapamekasan/formperma/fpV_7xBEiikr-J3m_uuSBd55seE58fSR5NRHZDSDxsY"
+                target="_blank" class="service-card cursor-pointer group block" data-aos="fade-up" data-aos-delay="600">
+                <div
+                    class="h-64 md:h-80 bg-card-yellow rounded-[2rem] shadow-2xl flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-10 -mt-10 blur-xl transition-all group-hover:scale-150">
+                    </div>
+                    <i class="fa-solid fa-book-open-reader text-5xl mb-4 text-black opacity-80"></i>
+                    <h3 class="text-2xl md:text-3xl font-bold text-black uppercase tracking-tight">Buku Tamu</h3>
+                </div>
+                <!-- Pill Shadow/Base -->
+                <div class="w-24 h-4 bg-[#8eb370] rounded-full mx-auto mt-4 opacity-80"></div>
+            </a>
+
+            <!-- Card 2: Indeks Kepuasan (Red) -->
+            <div onclick="openSurvey()" class="service-card cursor-pointer group" data-aos="fade-up"
+                data-aos-delay="700">
+                <div
+                    class="h-64 md:h-80 bg-card-red rounded-[2rem] shadow-2xl flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-10 -mt-10 blur-xl transition-all group-hover:scale-150">
+                    </div>
+                    <i class="fa-solid fa-square-poll-vertical text-5xl mb-4 text-white opacity-90"></i>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-tight">Indeks <br> Kepuasan
+                    </h3>
+                </div>
+                <!-- Pill Shadow/Base -->
+                <div class="w-24 h-4 bg-[#8eb370] rounded-full mx-auto mt-4 opacity-80"></div>
+            </div>
+
+            <!-- Card 3: Google View (Green) -->
+            <div onclick="openMap()" class="service-card cursor-pointer group" data-aos="fade-up" data-aos-delay="800">
+                <div
+                    class="h-64 md:h-80 bg-card-green rounded-[2rem] shadow-2xl flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-10 -mt-10 blur-xl transition-all group-hover:scale-150">
+                    </div>
+                    <i class="fa-solid fa-map-location-dot text-5xl mb-4 text-white opacity-90"></i>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-tight">Google View</h3>
+                </div>
+                <!-- Pill Shadow/Base -->
+                <div class="w-24 h-4 bg-[#8eb370] rounded-full mx-auto mt-4 opacity-80"></div>
+            </div>
+
+        </div>
+
+        <!-- Decorative Lines below cards (Visual match) -->
+        <div class="mt-16 text-center opacity-30">
+            <div class="h-3 bg-gray-400 rounded-full w-3/4 md:w-1/2 mx-auto mb-2"></div>
+            <div class="h-3 bg-gray-400 rounded-full w-1/2 md:w-1/3 mx-auto mb-2"></div>
+            <div class="h-3 bg-gray-400 rounded-full w-3/4 md:w-1/2 mx-auto"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#2D4A52] text-white py-6 text-center mt-auto shadow-inner">
+        <p class="text-sm md:text-base font-medium opacity-90">
+            &copy; 2026 MAN 2 Pamekasan. All Rights Reserved
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
